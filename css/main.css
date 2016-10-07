@@ -66,6 +66,49 @@
   color: red;
 }
 
+.raised-button {
+  border: none;
+  border-radius: 2px;
+  display: inline-block;
+  height: 36px;
+  line-height: 36px;
+  outline: 0;
+  padding: 0 2rem;
+  text-transform: uppercase;
+  vertical-align: middle;
+  background: #673AB7;
+  color: #FFFFFF;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.flat-button {
+  font-weight: 500;
+  font-size: 14px;
+  margin-right: 20px;
+  border: none;
+  border-radius: 2px;
+  display: inline-block;
+  height: 36px;
+  line-height: 36px;
+  outline: 0;
+  padding: 0 2rem;
+  text-transform: uppercase;
+  vertical-align: middle;
+  background: none;
+  color: #673AB7;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.flat-button:focus {
+  background: rgba(103, 58, 183, 0.12);
+}
+
 .show-button {
   z-index: 10;
 }
@@ -74,6 +117,7 @@ body {
   font-family: 'Roboto', sans-serif;
   background: #f5f5f5;
   background: url("/img/bg-temp.jpg");
+  background-size: cover center center;
   padding: 5rem;
 }
 
@@ -92,10 +136,7 @@ body {
   opacity: 10%;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=1000%)";
   filter: alpha(opacity=1000%);
-  width: 110%;
-  height: 110%;
   background-repeat: no-repeat;
-  background-size: cover;
 }
 
 #centered {
@@ -128,6 +169,7 @@ body {
   min-height: 200px;
   position: relative;
   background: url("/img/bg-temp.jpg");
+  background-size: cover;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 

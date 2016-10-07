@@ -3,25 +3,25 @@
 
 <head>
     <title>jonimeeder.com</title>
-    <link href="/css/main.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 </head>
 
 <body>
   <header>
-    <button id="show-card" class="show-button" name="answer" onclick="showCard()">Click</button>
+    <button id="show-card" class="show-button raised-button" name="answer" onclick="showCard()">More Info</button>
   </header>
 
 
-    <div class="card-container">
-
-
-        <div id="card" class="card"  style="display:none;">
+    <div class="card-container" id="card-container" style="display:none;">
+        <div id="card" class="card">
             <div class="image">
                 <span class="title">Trifid, Lagoon, and Mars </span>
                 <button class="fab ripple"></button>
             </div>
             <div class="content">
+              <!-- <div id="images"></div> -->
                 <p>Image Credit &amp;<a href="lib/about_apod.html#srapply"> Copyright</a>: <a href="https://www.facebook.com/rayan.nouroozi">Mohammad Nouroozi</a>
                 </p>
             </div>
@@ -32,46 +32,9 @@
         </div>
     </div>
 
-    <!-- <div id="bg" class="background-image"></div> -->
-
-    <script>
-        (function(window, $) {
-
-            $(function() {
-
-                var isAnimating = false;
-                $('.ripple').on('click', function(event) {
-                    event.preventDefault();
-
-                    var $div = $('<div/>'),
-                        btnOffset = $(this).offset(),
-                        xPos = event.pageX - btnOffset.left,
-                        yPos = event.pageY - btnOffset.top;
-
-
-
-                    $div.addClass('ripple-effect');
-                    var $ripple = $(".ripple-effect");
-
-                    $ripple.css("height", $(this).height());
-                    $ripple.css("width", $(this).height());
-                    $div
-                        .css({
-                            top: yPos - ($ripple.height() / 2),
-                            left: xPos - ($ripple.width() / 2),
-                            background: $(this).data("ripple-color")
-                        })
-                        .appendTo($(this));
-
-                    window.setTimeout(function() {
-                        $div.remove();
-                    }, 2000);
-                });
-
-            });
-
-        })(window, jQuery);
-    </script>
+    <div id="bg-blur" class="background-image"></div>
+    <script src="js/feed.js"></script>
+    <script src="js/anim.js"></script>
     <script src="js/showcard.js"></script>
 
 </body>

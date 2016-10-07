@@ -2,15 +2,19 @@
 @import 'sass/_vars'
 @import 'sass/_card'
 @import 'sass/_typography'
+@import 'sass/_interactions'
+
 
 .show-button
   z-index: 10
 
 
+
 body
   font-family: 'Roboto', sans-serif
-  background: $bg-color
-  background: $bg-image
+  // background: $bg-color
+  // background: $bg-image
+  // background-size: cover center center
 
   padding: 5rem
 
@@ -23,10 +27,9 @@ body
   background: #bg-color
   +filter (blur,7px)
   @include Opacity(10%)
-  width: 110%
-  height: 110%
+
   background-repeat: no-repeat
-  background-size: cover
+
 
 #centered
   position: fixed
@@ -76,6 +79,7 @@ body
   position: relative
   //background: #3949AB
   background: url('/img/bg-temp.jpg')
+  background-size: cover
   @include box-shadow-helper(2)
 
 .card .image img
