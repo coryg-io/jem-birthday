@@ -2,8 +2,6 @@
 <html>
 
 <head>
-  <SCRIPT type="text/javascript"
-		src="http://code.jquery.com/jquery-latest.js"></SCRIPT>
     <title>jonimeeder.com</title>
     <link href="/css/main.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
@@ -11,8 +9,11 @@
 
 <body>
 
-    <div id="centered">
-        <div class="card">
+  <input type="button" name="answer" value="Show Div" onclick="showCard()" />
+
+
+    <div class="card-container">
+        <div id="card" class="card"  style="display:none;">
             <div class="image">
                 <span class="title">Trifid, Lagoon, and Mars </span>
                 <button class="fab ripple"></button>
@@ -23,7 +24,7 @@
             </div>
             <div class="action">
                 <a class="button" href="https://apod.nasa.gov/apod/astropix.html">Read More</a>
-                <a class="button" href="#">Dismiss</a>
+                <a class="button" href="#" onclick="hideCard()">Dismiss</a>
             </div>
         </div>
     </div>
@@ -68,6 +69,7 @@
 
         })(window, jQuery);
     </script>
+    <script src="js/showcard.js"></script>
 
 </body>
 
