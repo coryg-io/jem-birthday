@@ -1,0 +1,140 @@
+body {
+  font-family: "Roboto", sans-serif;
+  background: #f5f5f5;
+  background: url("/img/bg-temp.jpg");
+  padding: 5rem; }
+
+.background-image {
+  position: fixed;
+  left: -5%;
+  top: -5%;
+  z-index: 1;
+  display: block;
+  background: #bg-color;
+  -webkit-filter: blur(7px);
+  -moz-filter: blur(7px);
+  -ms-filter: blur(7px);
+  -o-filter: blur(7px);
+  filter: blur(7px);
+  opacity: 10%;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=1000%)";
+  filter: alpha(opacity=1000%);
+  width: 110%;
+  height: 110%;
+  background-repeat: no-repeat;
+  background-size: cover; }
+
+#centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 2; }
+  #centered .card {
+    transform: translate(-50%, -50%); }
+
+.card {
+  display: inline-block;
+  vertical-align: top;
+  width: 350px;
+  position: relative;
+  overflow: hidden;
+  margin: 10px;
+  background: #fafafa;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  color: rgba(0, 0, 0, 0.87);
+  border-radius: 2px; }
+  .card:hover {
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+    transition: box-shadow 0.4s ease; }
+
+.card .fab {
+  position: absolute;
+  bottom: -25px;
+  right: 10px;
+  height: 50px;
+  width: 50px;
+  padding: 1rem;
+  border-radius: 25px;
+  background-color: #FF4081;
+  color: white;
+  border: 0;
+  font-size: 13px;
+  line-height: 10px;
+  outline: none;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }
+  .card .fab:active {
+    animation: squish 0.75s ease; }
+
+.card .title {
+  line-height: 48px;
+  font-size: 24px;
+  font-weight: 300; }
+
+.card .content {
+  padding: 25px 20px; }
+
+.card p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500; }
+
+.card .action {
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+  padding: 20px; }
+
+.card .action a {
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 14px;
+  margin-right: 20px; }
+  .card .action a:hover, .card .action a visited, .card .action a active {
+    color: red; }
+
+.card .image {
+  min-height: 200px;
+  position: relative;
+  background: url("/img/bg-temp.jpg");
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); }
+
+.card .image img {
+  border-radius: 2px 2px 0 0;
+  position: relative;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%; }
+
+.card .image .title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 20px;
+  color: #FFF; }
+
+@keyframes squish {
+  0%, 30%, 100% {
+    transform: scale(1); }
+  20% {
+    transform: scale(0.975); }
+  40% {
+    transform: scale(1.025); }
+  60% {
+    transform: scale(0.985); }
+  80% {
+    transform: scale(1.01); } }
+.ripple-effect {
+  position: absolute;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  background: white;
+  animation: ripple-animation 2s; }
+
+@keyframes ripple-animation {
+  from {
+    transform: scale(1);
+    opacity: 0.4; }
+  to {
+    transform: scale(100);
+    opacity: 0; } }
