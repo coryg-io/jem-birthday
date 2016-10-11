@@ -1,0 +1,1 @@
+(function(){var e,r,t,a,n,u;n=new Date,u=n.getYear(),u<1e3&&(u+=1900),e=n.getDay(),t=n.getMonth(),r=n.getDate(),r<10&&(r="0"+r),a=new Array("January","February","March","April","May","June","July","August","September","October","November","December"),document.write(""+r+" "+a[t]+" "+u)}).call(this);

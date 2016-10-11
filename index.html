@@ -1,41 +1,57 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
     <title>jonimeeder.com</title>
-    <link href="css/main.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
 </head>
 
 <body>
-  <header>
-    <button id="show-card" class="show-button raised-button" name="answer" onclick="showCard()">More Info</button>
-  </header>
+    <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+        <!-- Modal Trigger -->
+        <a class="modal-trigger btn-floating btn-small waves-effect waves-light deep-purple darken-3" href="#info-modal">
+            <i class="material-icons">help_outline</i>
+        </a>
+    </div>
+
+    <iframe id="apod_vid_id" type="text/html"></iframe>
+    <img class="aopd" id="apod_img_id" />
+    <div class="container">
 
 
-    <div class="card-container" id="card-container" style="display:none;">
-        <div id="card" class="card">
-            <div class="image">
-                <span class="title">Trifid, Lagoon, and Mars </span>
-                <button class="fab ripple"></button>
+        <!-- Modal Structure -->
+        <div id="info-modal" class="modal">
+            <div class="modal-content">
+                <h4 id="apod_title"></h4>
+                <h6 class="deep-purple-text text-darken-1"><script src="js/date.js"></script></h6>
+                <p id="apod_explanation"></p>
+                <blockquote id="copyright"></blockquote>
             </div>
-            <div class="content">
-              <!-- <div id="images"></div> -->
-                <p>Image Credit &amp;<a href="lib/about_apod.html#srapply"> Copyright</a>: <a href="https://www.facebook.com/rayan.nouroozi">Mohammad Nouroozi</a>
-                </p>
-            </div>
-            <div class="action">
-                <a class="button" href="https://apod.nasa.gov/apod/astropix.html">Read More</a>
-                <a class="button" href="#" onclick="hideCard()">Dismiss</a>
+            <div class="modal-footer">
+                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Dismiss</a>
             </div>
         </div>
     </div>
 
-    <div id="bg-blur" class="background-image"></div>
-    <script src="js/feed.js"></script>
-    <script src="js/anim.js"></script>
-    <script src="js/showcard.js"></script>
+
+    <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="js/bin/materialize.js"></script>
+    <script src="js/bin/init.js"></script>
+    <script>
+        $(document).ready(function() {
+            // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+            $('.modal-trigger').leanModal();
+        });
+    </script>
+    <script src="js/aopd.js"></script>
+
 
 </body>
 
