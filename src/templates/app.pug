@@ -1,5 +1,11 @@
 v-app
-  #bg-img(v-bind:style='{ backgroundImage: "url(" + apod.url + ")", backgroundSize: "cover" }')
+  #progress-wrapper
+    v-progress-circular(indeterminate v-bind:size="60" class="deep-purple--text text--lighten-3")
+  div(v-if='apod.media_type == "image"')
+    #bg-img(v-bind:style='{ backgroundImage: "url(" + apod.url + ")", backgroundSize: "cover" }')
+  div(v-if='apod.media_type == "video"')
+    #bg-img
+      iframe(v-bind:src='apod.url')
   include includes/app_vue/v-navigation-drawer.pug
   include includes/app_vue/v-toolbar.pug
   include includes/app_vue/v-speed-dial.pug

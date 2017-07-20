@@ -77,6 +77,8 @@
 
   .application--light {
     background: #303030 !important;
+    position: relative;
+    z-index: 0;
   }
 
   #bg-img {
@@ -85,6 +87,11 @@
     width: 100vw;
     z-index: 0;
     background-position: center center;
+  }
+
+  #bg-img > iframe {
+    width: 100vw;
+    height: 100vh;
   }
 
   #app .speed-dial {
@@ -97,6 +104,20 @@
     position: relative;
   }
 
+  #progress-wrapper {
+    position: absolute;
+    z-index: -1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  #progress-wrapper > div {
+    max-width: 50%;
+  }
+
   .modal-image {
     display: block;
     width: 95%;
@@ -104,6 +125,24 @@
     height: auto;
     margin: 0 auto;
     border-radius: 3px;
+  }
+
+  .modal-video {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+    height: 0;
+    overflow: hidden;
+  }
+
+  .modal-video iframe,
+  .modal-video object,
+  .modal-video embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
 
   .lead {

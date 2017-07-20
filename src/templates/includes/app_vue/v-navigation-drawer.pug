@@ -14,7 +14,10 @@ v-navigation-drawer(temporary v-model="sideNav" light overflow absolute)
         v-list-tile-title {{ i.title }}
     v-divider
   v-list
-    p Browse the APOD Archive
+    div(style='font-weight: 500; padding: 0 16px;')
+      p Browse the APOD Archive
+    //- v-list-tile
+    //-   p Browse the APOD Archive
     //- v-list-tile
     //-   v-list-tile-content(style='padding-top: 18px; overflow: visible;')
     //-     v-list-tile-title Browse the APOD Archive
