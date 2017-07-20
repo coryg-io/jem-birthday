@@ -1,0 +1,11 @@
+v-speed-dial(right bottom slide-x-reverse-transition direction='top')
+  v-btn.primary.darken-2(slot='activator' dark fab v-model='fab.show')
+    v-icon more_vert
+    v-icon close
+
+  v-btn.primary.lighten-1(fab dark small tag='a' v-bind:href='apod.hdurl')
+    v-icon fullscreen
+  v-btn.primary(fab dark small tag='a' href='https://apod.nasa.gov/apod/')
+    v-icon launch
+  v-btn.primary.darken-1(fab dark small @click.native.stop="infoModal = true")
+    v-icon info_outline
