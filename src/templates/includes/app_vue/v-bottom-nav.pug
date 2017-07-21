@@ -1,12 +1,19 @@
 #bottom-nav-wrap
   v-bottom-nav.grey.lighten-3(absolute v-bind:value='dateBrowse.show')
-    v-btn.primary--text(flat light value='1' @click.native='prevDay()')
-      span Back
+    //- Back Buttons
+    v-btn.primary--text(v-if='apod.date === datePicker.allowed.min' flat disabled light value='1')
+      span {{ prevDate }}
       v-icon navigate_before
-    //- v-btn.teal--text(flat light @click.native='dateBrowse.active = 2' v-bind:value='dateBrowse.active === 2')
-    //-   span Favorites
-    //-   v-icon favorites
 
-    v-btn.primary--text(flat light value='3' @click.native='nextDay()')
-      span Forward
+    v-btn.primary--text(v-else flat light value='1' @click.native='prevDay()')
+      span {{ prevDate }}
+      v-icon navigate_before
+
+    //- Forward Buttons
+    v-btn.primary--text(v-if='apod.date === todayDate' flat disabled light value='3' )
+      span {{ nextDate }}
+      v-icon navigate_next
+
+    v-btn.primary--text(v-else flat light value='3' @click.native='nextDay()')
+      span {{ nextDate }}
       v-icon navigate_next

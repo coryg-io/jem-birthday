@@ -1,3 +1,5 @@
+$border-radius: 3px;
+
 %pos-rel {
   position: relative;
 }
@@ -43,14 +45,6 @@
   }
 }
 
-// .bot-nav-open {
-//   bottom: 66px !important;
-// }
-//
-// .bot-nav-closed {
-//   bottom: 10px !important;
-// }
-
 #bottom-nav-wrap {
   height: 56px;
   overflow: hidden;
@@ -85,7 +79,7 @@
     max-width: 450px;
     height: auto;
     margin: 0 auto;
-    border-radius: 3px;
+    border-radius: $border-radius;
   }
   &-video {
     position: relative;
@@ -104,6 +98,8 @@
   left: 0;
   width: 100%;
   height: 100%;
+  border: 0;
+  border-radius: $border-radius;
 }
 
 .lead {

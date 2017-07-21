@@ -1,24 +1,41 @@
-v-navigation-drawer(temporary v-model="sideNav" light overflow absolute)
+v-navigation-drawer(temporary v-model='sideNav' light overflow absolute)
   v-list.pa-0
-    v-list-tile(avatar tag="div")
-      v-list-tile-avatar
-        img(src="http://facetheforce.today/random/85?r=1")
+    v-list-tile(avatar tag='div')
+      v-list-tile-avatar(v-if='apod.media_type == "image"')
+        img(v-bind:src='apod.url')
       v-list-tile-content
-        v-list-tile-title JEM Site
+        v-list-tile-title {{ drawerDate }}
   v-list.pt-0
     v-divider
-    v-list-tile(v-for="i in navItems" v-bind:key="i.title" v-bind:href="i.url")
+    v-list-tile(v-bind:href='apod.hdurl')
       v-list-tile-action
-        v-icon {{ i.icon }}
+        v-icon fullscreen
       v-list-tile-content
-        v-list-tile-title {{ i.title }}
+        v-list-tile-title View fullscreen
+    v-list-tile(v-bind:href='apodDateUrl')
+      v-list-tile-action
+        v-icon launch
+      v-list-tile-content
+        v-list-tile-title View on NASA APOD
+    v-list-tile(@click.native.stop='infoModal = true, sideNav = false')
+      v-list-tile-action
+        v-icon info_outline
+      v-list-tile-content
+        v-list-tile-title View {{ apod.media_type }} details
     v-divider
   v-list
-    div(style='font-weight: 500; padding: 0 16px;')
-      p Browse the APOD Archive
+    //- div(style='font-weight: 500; padding: 0 16px;')
+    //-   p Browse the APOD Archive
     v-list-tile.tall-tile
       v-list-tile-content(style='padding-top: 18px; overflow: visible;')
         include v-date-picker.pug
     v-list-tile.tall-tile
       v-list-tile-content(style='padding-top: 18px; overflow: visible;')
         v-switch(v-model='dateBrowse.show' label='Navigate Dates' color='deep-purple' value='deep-purple' @click.native='sideNav = false, fab.botPad = !fab.botPad')
+  v-list.pt-0
+    v-divider
+    v-list-tile(v-for='i in navItems' v-bind:key='i.title' v-bind:href='i.url')
+      v-list-tile-action
+        v-icon {{ i.icon }}
+      v-list-tile-content
+        v-list-tile-title {{ i.title }}

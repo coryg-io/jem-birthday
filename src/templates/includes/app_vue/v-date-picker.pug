@@ -1,6 +1,6 @@
 v-dialog(persistent v-model='datePicker.modal' lazy full-width)
-  v-text-field(slot='activator' label='Pick a date' v-model='datePicker.e3' prepend-icon='event' readonly @click.native='sideNav = false')
-  v-date-picker(v-model='datePicker.e3' scrollable v-bind:allowed-dates='datePicker.allowed')
+  v-text-field(slot='activator' label='Pick a date' v-model='datePicker.selected' prepend-icon='event' readonly @click.native='sideNav = false')
+  v-date-picker(v-model='datePicker.selected' scrollable v-bind:allowed-dates='datePicker.allowed')
     template(scope='{ save, cancel }')
       v-card-actions
         v-btn(flat primary @click.native='cancel()') Cancel

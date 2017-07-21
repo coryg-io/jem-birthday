@@ -14,7 +14,7 @@
   var nasaApiKey = 'api_key=uI5nmso1mWCHxbGyzVqecAYD07O8j5QGsE8tUgVw'
   var nasaApi = 'https://api.nasa.gov/planetary/apod?api_key=uI5nmso1mWCHxbGyzVqecAYD07O8j5QGsE8tUgVw'
 
-  const minDate = '1997-01-01'
+  // const minDate = '1997-01-01'
   const maxDate = new Date()
 
   export default {
@@ -48,9 +48,9 @@
         datePicker: {
           modal: false,
           menu: false,
-          e3: null,
+          selected: null,
           allowed: {
-            min: minDate,
+            min: '1996-12-27',
             max: maxDate
           }
         },
@@ -70,7 +70,7 @@
     },
     methods: {
       setDate: function () {
-        this.$http.get(nasaApiBaseUrl + nasaApiDateQuery + this.datePicker.e3 + '&' + nasaApiKey).then((response) => {
+        this.$http.get(nasaApiBaseUrl + nasaApiDateQuery + this.datePicker.selected + '&' + nasaApiKey).then((response) => {
           // console.log(response.data)
           this.apod = response.data
           this.theNextDate = new Date(this.apod.date)
@@ -117,6 +117,28 @@
     computed: {
       postDate: function () {
         return moment(this.apod.date).format('dddd, MMMM Do YYYY')
+      },
+      drawerDate: function () {
+        return moment(this.apod.date).format('MMMM Do YYYY')
+      },
+      apodDateUrl: function () {
+        var thisDate = moment(this.apod.date).format('YYMMDD')
+        return 'https://apod.nasa.gov/apod/ap' + thisDate + '.html'
+      },
+      todayDate: function () {
+        return moment().format('YYYY-MM-DD')
+      },
+      nextDate: function () {
+        var date = this.apod.date
+        var currentDate = new Date(date)
+        currentDate.setDate(currentDate.getDate() + 1)
+        return moment(currentDate).format('MMMM Do YYYY')
+      },
+      prevDate: function () {
+        var date = this.apod.date
+        var currentDate = new Date(date)
+        currentDate.setDate(currentDate.getDate() - 1)
+        return moment(currentDate).format('MMMM Do YYYY')
       }
     }
   }
