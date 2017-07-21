@@ -63,15 +63,17 @@
     },
     created () {
       this.$http.get(nasaApi).then((response) => {
-        console.log(response.data)
+        // console.log(response.data)
         this.apod = response.data
+        this.theNextDate = new Date(this.apod.date)
       })
     },
     methods: {
       setDate: function () {
         this.$http.get(nasaApiBaseUrl + nasaApiDateQuery + this.datePicker.e3 + '&' + nasaApiKey).then((response) => {
-          console.log(response.data)
+          // console.log(response.data)
           this.apod = response.data
+          this.theNextDate = new Date(this.apod.date)
         })
       },
       fabPadBot: function () {
@@ -82,28 +84,39 @@
         }
       },
       nextDay: function () {
-        var date = this.apod.date
-        console.log(date)
-        var changedDate = date.setDate(date.getDate() + 1)
-        console.log(changedDate)
-        this.theNextDate = changedDate
+        var current = this.theNextDate
+        var currentDate = new Date(current)
+
+        currentDate.setDate(currentDate.getDate() + 1)
+
+        this.theNextDate = currentDate
+
+        var apiDate = moment(currentDate).format('YYYY-MM-DD')
+        // return currentDate
+        this.$http.get(nasaApiBaseUrl + nasaApiDateQuery + apiDate + '&' + nasaApiKey).then((response) => {
+          // console.log(response.data)
+          this.apod = response.data
+        })
       },
       prevDay: function () {
-        var date = this.apod.date
-        var changedDate = date.setDate(date.getDate() - 1)
-        this.theNextDate = changedDate
+        var current = this.theNextDate
+        var currentDate = new Date(current)
+
+        currentDate.setDate(currentDate.getDate() - 1)
+
+        this.theNextDate = currentDate
+
+        var apiDate = moment(currentDate).format('YYYY-MM-DD')
+        // return currentDate
+        this.$http.get(nasaApiBaseUrl + nasaApiDateQuery + apiDate + '&' + nasaApiKey).then((response) => {
+          // console.log(response.data)
+          this.apod = response.data
+        })
       }
     },
     computed: {
       postDate: function () {
         return moment(this.apod.date).format('dddd, MMMM Do YYYY')
-      },
-      fabBotPad: function () {
-        if (this.fab.botPad === true) {
-          return '66px'
-        } else if (this.fab.botPad === false) {
-          return '10px'
-        }
       }
     }
   }

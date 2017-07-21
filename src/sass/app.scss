@@ -1,3 +1,7 @@
+%pos-rel {
+  position: relative;
+}
+
 .application--light {
   background: #303030 !important;
   position: relative;
@@ -12,9 +16,11 @@
   background-position: center center;
 }
 
-#bg-img > iframe {
-  width: 100vw;
-  height: 100vh;
+#bg-img {
+  iframe {
+    width: 100vw;
+    height: 100vh;
+  }
 }
 
 .tall-tile {
@@ -28,13 +34,22 @@
   transition: bottom 0.4s cubic-bezier(0.25, 0.8, 0.5, 1);
 }
 
-.bot-nav-open {
-  bottom: 66px !important;
+.bot-nav {
+  &-open {
+    bottom: 66px !important;
+  }
+  &-closed {
+    bottom: 10px !important;
+  }
 }
 
-.bot-nav-closed {
-  bottom: 10px !important;
-}
+// .bot-nav-open {
+//   bottom: 66px !important;
+// }
+//
+// .bot-nav-closed {
+//   bottom: 10px !important;
+// }
 
 #bottom-nav-wrap {
   height: 56px;
@@ -57,27 +72,28 @@
   justify-content: center;
   height: 100vh;
   width: 100vw;
+
+  div {
+    max-width: 50%;
+  }
 }
 
-#progress-wrapper > div {
-  max-width: 50%;
-}
-
-.modal-image {
-  display: block;
-  width: 95%;
-  max-width: 450px;
-  height: auto;
-  margin: 0 auto;
-  border-radius: 3px;
-}
-
-.modal-video {
-  position: relative;
-  padding-bottom: 56.25%;
-  padding-top: 30px;
-  height: 0;
-  overflow: hidden;
+.modal {
+  &-image {
+    display: block;
+    width: 95%;
+    max-width: 450px;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 3px;
+  }
+  &-video {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+    height: 0;
+    overflow: hidden;
+  }
 }
 
 .modal-video iframe,

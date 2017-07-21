@@ -7,7 +7,7 @@ v-layout(row justify-center)
         v-toolbar-title {{ apod.title }}
       v-container
         v-layout(row wrap)
-          v-flex(xs12 sm10 offset-xs1 md8 offset-md2)
+          v-flex(xs12 sm10 offset-sm1 md8 offset-md2)
             div(v-if='apod.media_type == "image"')
               a(v-bind:href='apod.url')
                 img.elevation-3.modal-image.my-3(v-bind:src='apod.url')
@@ -18,7 +18,7 @@ v-layout(row justify-center)
             p.text-xs-center(v-if='apod.copyright')
               span Credit &amp; Copyright:&nbsp;
               span.primary--text.lighten-2 {{ apod.copyright }}
-          v-flex(xs12 sm10 offset-xs1 md8 offset-md2)
+          v-flex(xs12 sm10 offset-sm1 md8 offset-md2)
             p.lead {{ apod.explanation }}
           v-flex(xs12)
             p(style='text-align: right')
