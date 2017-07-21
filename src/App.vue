@@ -1,5 +1,4 @@
 <template lang="pug" src="@/templates/app.pug">
-
 </template>
 
 <script>
@@ -31,12 +30,19 @@
             icon: 'photo_library',
             title: 'Astronomy Picture of the Day',
             url: 'http://apod.nasa.gov'
+          },
+          {
+            icon: 'build',
+            title: 'NASA Open APIs',
+            url: 'https://api.nasa.gov'
           }
         ],
         sideNav: false,
         apod: [],
         fab: {
-          show: false
+          show: false,
+          botPad: false,
+          bottom: '10px'
         },
         infoModal: false,
         datePicker: {
@@ -47,7 +53,12 @@
             min: minDate,
             max: maxDate
           }
-        }
+        },
+        dateBrowse: {
+          show: false,
+          active: 1
+        },
+        theNextDate: ''
       }
     },
     created () {
@@ -62,11 +73,37 @@
           console.log(response.data)
           this.apod = response.data
         })
+      },
+      fabPadBot: function () {
+        if (this.fab.botPad === true) {
+          return '66px'
+        } else if (this.fab.botPad === false) {
+          return '10px'
+        }
+      },
+      nextDay: function () {
+        var date = this.apod.date
+        console.log(date)
+        var changedDate = date.setDate(date.getDate() + 1)
+        console.log(changedDate)
+        this.theNextDate = changedDate
+      },
+      prevDay: function () {
+        var date = this.apod.date
+        var changedDate = date.setDate(date.getDate() - 1)
+        this.theNextDate = changedDate
       }
     },
     computed: {
       postDate: function () {
         return moment(this.apod.date).format('dddd, MMMM Do YYYY')
+      },
+      fabBotPad: function () {
+        if (this.fab.botPad === true) {
+          return '66px'
+        } else if (this.fab.botPad === false) {
+          return '10px'
+        }
       }
     }
   }
@@ -94,10 +131,32 @@
     height: 100vh;
   }
 
+  .tall-tile {
+    height: 65px;
+  }
+
   #app .speed-dial {
     position: absolute;
-    bottom: 10px !important;
     right: 10px !important;
+    z-index: 2;
+    transition: bottom 0.4s cubic-bezier(0.25, 0.8, 0.5, 1);
+  }
+
+  .bot-nav-open {
+    bottom: 66px !important;
+  }
+
+  .bot-nav-closed {
+    bottom: 10px !important;
+  }
+
+  #bottom-nav-wrap {
+    height: 56px;
+    overflow: hidden;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
   }
 
   #app .btn--floating {

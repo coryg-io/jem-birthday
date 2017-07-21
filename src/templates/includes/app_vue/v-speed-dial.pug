@@ -1,4 +1,4 @@
-v-speed-dial(right bottom slide-x-reverse-transition direction='top')
+v-speed-dial(right bottom slide-x-reverse-transition direction='top' v-bind:class="{ 'bot-nav-open': dateBrowse.show, 'bot-nav-closed': !dateBrowse.show }")
   v-btn.primary.darken-2(slot='activator' dark fab v-model='fab.show')
     v-icon more_vert
     v-icon close

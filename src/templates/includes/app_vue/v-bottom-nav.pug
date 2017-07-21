@@ -1,0 +1,12 @@
+#bottom-nav-wrap
+  v-bottom-nav.grey.lighten-3(absolute v-bind:value='dateBrowse.show')
+    v-btn.primary--text(flat light @click.native='dateBrowse.active = 1' v-bind:value='dateBrowse.active === 1')
+      span Recents
+      v-icon navigate_before
+    //- v-btn.teal--text(flat light @click.native='dateBrowse.active = 2' v-bind:value='dateBrowse.active === 2')
+    //-   span Favorites
+    //-   v-icon favorites
+
+    v-btn.primary--text(flat light @click.native='dateBrowse.active = 3' v-bind:value='dateBrowse.active === 3')
+      span Nearby
+      v-icon navigate_next
